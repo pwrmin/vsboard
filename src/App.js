@@ -1,23 +1,35 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import axios from 'axios';
+
 
 function App() {
+
+    const [Login,setLogin] = useState({ id: "", pw: "" });
+
+    const handleSignin = () =>{
+
+    axios.post("http://10.5.5.12/auth/login", Login)
+  .then(res => {
+    
+    console.log("로그인 성공:", res.data);
+  })
+  .catch(err => {
+    console.error("로그인 실패:", err);
+  });
+     
+    }
+
+    const handleLogin = (e) => {
+      const {name , value} = e.target
+      setLogin(prev => ({...prev, [name]:value}))
+    }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      갱갱갱
     </div>
   );
 }
