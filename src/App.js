@@ -1,36 +1,29 @@
-import logo from './logo.svg';
+
 import './App.css';
-import { useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import Signup from "./pages/signup.js";
+import Login from "./pages/Login.js";
+import { Routes, Route, Link } from "react-router-dom";
 import axios from 'axios';
+
+
+axios.defaults.withCredentials = true; // 0930 request를 보낼때 세션 키가 있는 경우, 담아서 리퀘스트 
+
 
 
 function App() {
 
-    const [Login,setLogin] = useState({ id: "", pw: "" });
-
-    const handleSignin = () =>{
-
-    axios.post("http://10.5.5.12/auth/login", Login)
-  .then(res => {
-    
-    console.log("로그인 성공:", res.data);
-  })
-  .catch(err => {
-    console.error("로그인 실패:", err);
-  });
-     
-    }
-
-    const handleLogin = (e) => {
-      const {name , value} = e.target
-      setLogin(prev => ({...prev, [name]:value}))
-    }
-
   return (
-    <div className="container">
-      갱갱갱
-    </div>
+    <>
+      <div className="container">
+
+        <Routes>
+          <Route path="/*" element={<Login />} />
+          <Route path="/signup/*" element={<Signup />} />
+        </Routes>
+
+      </div>
+    </>
+
   );
 }
 
