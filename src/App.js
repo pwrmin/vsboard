@@ -1,57 +1,62 @@
-import logo from './logo.svg';
+
+
 import './App.css';
-import { useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import Signup from "./pages/signup.js";
+import Login from "./pages/Login.js";
+import Lobby from "./pages/Lobby.js";
+import Mypage from "./pages/Mypage.js";
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
+import useAuthStore from "./store/authStore.js";
+import { useEffect } from "react";
+
+
+
 
 
 function App() {
 
-    const [Login,setLogin] = useState({ id: "", pw: "" });
 
-    const handleSignin = () =>{
+  const navigate = useNavigate();
+  const login = useAuthStore((state) => state.login);
+  const userId = sessionStorage.getItem("loginId");
 
-    axios.post("http://10.5.5.12/auth/login", Login)
-  .then(res => {
-    
-    console.log("로그인 성공:", res.data);
-  })
-  .catch(err => {
-    console.error("로그인 실패:", err);
-  });
-     
+  useEffect(() => {
+    if (userId) {
+      login(userId); // 앱 시작 시 로그인 상태 복원
+      
     }
+  }, [login, userId]);
 
-    const handleLogin = (e) => {
-      const {name , value} = e.target
-      setLogin(prev => ({...prev, [name]:value}))
-    }
+  axios.defaults.withCredentials = true;  // 0930 request를 보낼때 세션 키가 있는 경우, 담아서 리퀘스트 
+
+  const loginStore = useAuthStore((state) => state.isLogin);
+
 
   return (
+
+
     <div className="container">
-     
-     <table border={1}>
-      <thead>
-        <tr>
-        <th>로그인</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-        <td>
-          아아이디<input type='text' placeholder=' ID 를 입력해주세요' name='id' onChange={handleLogin} value={Login.id}/> <br></br>
-          비밀번호<input type='password' placeholder='PW 를 입력해주세요' name='pw' onChange={handleLogin} value={Login.pw}/>
-        </td>
-        </tr>
-        <tr>
-          <td><button onClick={handleSignin}>로그인</button></td>
-        </tr>
-      </tbody>
+      {!loginStore ? (
+        <>
+          <Routes>
+            <Route path="/*" element={<Login />} />
+            <Route path="/signup/*" element={<Signup />} />
+          </Routes>
+        </>
+      ) : (
+        <>
+          <Routes>
+            <Route path="/lobby" element={<Lobby />} />
+            <Route path="/mypage" element={<Mypage />} />
+          </Routes>
+        </>
 
-     </table>
+      )}
+
+    </div >
 
 
-    </div>
   );
 }
 
