@@ -23,7 +23,7 @@ function Signup() {
 
     const handleInput = () => {
 
-        axios.post("http://10.5.5.13/auth/assign", Assign).then(res => {
+        axios.post("http://10.5.5.12/auth/assign", Assign).then(res => {
                 console.log("회원가입 성공:", res.data);
                 navigate("/"); // 회원가입 성공 시 로그인 페이지로 이동
             })
