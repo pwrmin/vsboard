@@ -1,4 +1,5 @@
 
+
 import './App.css';
 import Signup from "./pages/signup.js";
 import Login from "./pages/Login.js";
@@ -16,6 +17,7 @@ import { useEffect } from "react";
 
 
 function App() {
+
 
   const navigate = useNavigate();
   const login = useAuthStore((state) => state.login);
@@ -57,6 +59,7 @@ function App() {
       )}
 
     </div >
+
 
   );
 }

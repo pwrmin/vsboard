@@ -57,7 +57,9 @@ function Signup() {
 
                         <td> <button onClick={handleInput}> 회원가입 </button></td>
                     </tr>
-                    <Link to="/"><button>홈으로</button></Link>
+                    <tr>
+                    <td><Link to="/"><button>홈으로</button></Link></td>
+                    </tr>
                 </tbody>
 
             </table>
