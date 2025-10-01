@@ -5,7 +5,11 @@ import useAuthStore from "../store/authStore.js";
 import axios from 'axios';
 
 function Mypage() {
+
+    
  const userId = sessionStorage.getItem("loginId");
+
+
     return (
 
         <table border={1}>
