@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+
+div {
+    border: 1px solid black;
+}
+
+
+.container {
+    width: 600px;
+    height: 600px;
+    margin: auto;
+    text-align: center;
+
+}
+
+.boardtopbox {
+     width: 100%;
+    height: 10%;
+}
+
+.boardmainbox {
+    width: 100%;
+    height: 80%;
+}
+
+.boardunderbox {
+    width: 100%;
+    height: 10%;
+    text-align: end;
+}

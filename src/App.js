@@ -5,6 +5,8 @@ import Signup from "./pages/signup.js";
 import Login from "./pages/Login.js";
 import Lobby from "./pages/Lobby.js";
 import Mypage from "./pages/Mypage.js";
+import Board from "./pages/Board/Board.js";
+import BoardWrite from "./pages/Board/BoardWrite.js";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import useAuthStore from "./store/authStore.js";
@@ -49,6 +51,8 @@ function App() {
           <Routes>
             <Route path="/lobby" element={<Lobby />} />
             <Route path="/mypage" element={<Mypage />} />
+            <Route path="/board" element={<Board/>} />
+            <Route path="/boardwrite" element={<BoardWrite/>} />
           </Routes>
         </>
 

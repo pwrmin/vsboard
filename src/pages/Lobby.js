@@ -1,8 +1,8 @@
-import { useState } from "react";
+
 import { Routes, Route, useNavigate, Link } from "react-router-dom";
 import axios from 'axios';
 import useAuthStore from "../store/authStore.js";
-import Mypage from "./Mypage.js";
+
 function Lobby() {
     const navigate = useNavigate();
 
@@ -28,10 +28,13 @@ function Lobby() {
     }
 
     const handleMypage = () => {
-                                   // Zustand store 초기화
+        // Zustand store 초기화
         navigate("/mypage");       // 로그인 페이지로 이동
     };
 
+    const handleBoard = () => {
+        navigate("/board");
+    };
 
     return (
         <table border={1}>
@@ -45,11 +48,10 @@ function Lobby() {
                 </thead>
                 <tbody>
                     <tr>
-                            <td>게시판</td>
-                            <td><button onClick={handleMypage}>마이페이지</button></td>
-                            <td><button onClick={handleLogout}>로그아웃</button></td>
-                            <td><button onClick={handleDeleteLogin}>회원탈퇴</button></td>
-          
+                        <td><button onClick={handleBoard}>게시판</button></td>
+                        <td><button onClick={handleMypage}>마이페이지</button></td>
+                        <td><button onClick={handleLogout}>로그아웃</button></td>
+                        <td><button onClick={handleDeleteLogin}>회원탈퇴</button></td>
                     </tr>
                 </tbody>
             </>
