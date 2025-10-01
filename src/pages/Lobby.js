@@ -45,17 +45,11 @@ function Lobby() {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>게시판</td>
-                        <td><button onClick={handleMypage}>마이페이지</button></td>
-                        <td>
+                            <td>게시판</td>
+                            <td><button onClick={handleMypage}>마이페이지</button></td>
                             <td><button onClick={handleLogout}>로그아웃</button></td>
                             <td><button onClick={handleDeleteLogin}>회원탈퇴</button></td>
-
-                        </td>
-
-
-
-
+          
                     </tr>
                 </tbody>
             </>

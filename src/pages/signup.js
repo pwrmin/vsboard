@@ -45,7 +45,7 @@ function Signup() {
                 <tbody>
                
                     <tr>
-                        <td> <input type='text' placeholder='id 입력' value={Assign.id} name='id' onChange={handlechangeInput} /> </td> <br></br>
+                        <td> <input type='text' placeholder='id 입력' value={Assign.id} name='id' onChange={handlechangeInput} /> </td> 
                         <td> <input type='text' placeholder='pw 입력' value={Assign.pw} name='pw' onChange={handlechangeInput} /> </td>
                         <td> <input type='text' placeholder='name 입력' value={Assign.name} name='name' onChange={handlechangeInput} /> </td>
                         <td> <input type='text' placeholder='phone 입력' value={Assign.phone} name='phone' onChange={handlechangeInput} /> </td>
